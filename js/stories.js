@@ -66,16 +66,25 @@
     utt.pitch  = 1.1;
     utt.volume = 1;
 
-    // Pick a friendly English voice
-    function setVoice() {
-      const voices   = synth.getVoices();
-      const preferred = voices.find(v =>
-        /samantha|karen|victoria|moira|fiona|google uk english female|zira/i.test(v.name)
-      ) || voices.find(v => /en[-_]/i.test(v.lang)) || voices[0];
-      if (preferred) utt.voice = preferred;
+    // Pick a British male voice
+    utt.pitch  = 0.88;  // lower = more masculine
+    utt.rate   = 0.88;
+    function pickVoice() {
+      const v = synth.getVoices();
+      if (!v.length) return;
+      const FEMALE = /female|woman|girl|fiona|kate|serena|moira|tessa|veena|samantha|karen|victoria|linda|susan|zira|aria|siri/i;
+      const hit =
+        v.find(x => x.name === 'Daniel') ||                              // macOS UK male
+        v.find(x => x.name === 'Google UK English Male') ||              // Chrome UK male
+        v.find(x => /daniel|george|oliver|james|british.*male/i.test(x.name)) ||
+        v.find(x => x.lang === 'en-GB' && !FEMALE.test(x.name)) ||      // any GB non-female
+        v.find(x => x.lang === 'en-GB') ||                               // any GB
+        v.find(x => /en[-_]/.test(x.lang) && !FEMALE.test(x.name)) ||   // any EN non-female
+        v[0];
+      if (hit) utt.voice = hit;
     }
-    if (synth.getVoices().length) setVoice();
-    else synth.addEventListener('voiceschanged', setVoice, { once: true });
+    if (synth.getVoices().length) pickVoice();
+    else synth.addEventListener('voiceschanged', pickVoice, { once: true });
 
     utt.onend   = () => { currentIdx++; speakNext(); };
     utt.onerror = () => { currentIdx++; speakNext(); };
