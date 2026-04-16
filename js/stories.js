@@ -20,6 +20,7 @@
   };
 
   const VOICE_STORAGE_KEY = 'quran_stories_voice';
+  const MODE_STORAGE_KEY = 'quran_stories_mode';
   const RATE_STORAGE_KEY = 'quran_stories_rate';
   const STORY_KEY = (window.location.pathname.split('/').pop() || '').replace('.html', '');
   if (!Object.prototype.hasOwnProperty.call(STORY_CONFIG, STORY_KEY)) return;
@@ -32,7 +33,8 @@
   let currentSpeech = null;
   let isReading = false;
   let isPaused = false;
-  let narratorRate = parseFloat(localStorage.getItem(RATE_STORAGE_KEY) || '0.94');
+  let narratorRate = parseFloat(localStorage.getItem(RATE_STORAGE_KEY) || '0.88');
+  let narratorMode = localStorage.getItem(MODE_STORAGE_KEY) || 'calm-en';
   let chosenVoiceURI = localStorage.getItem(VOICE_STORAGE_KEY) || '';
 
   let audioCtx = null;
@@ -46,8 +48,21 @@
   }
 
   function collectParagraphs() {
-    return Array.from(document.querySelectorAll('.story-box p, .lesson-item p'))
+    const englishNodes = Array.from(document.querySelectorAll('.story-box p, .lesson-item p'))
       .filter((node) => !/[\u0600-\u06FF]/.test(safeText(node)) && safeText(node).length > 18);
+    const arabicNodes = Array.from(document.querySelectorAll('.verse-arabic'))
+      .filter((node) => /[\u0600-\u06FF]/.test(safeText(node)) && safeText(node).length > 8);
+
+    if (narratorMode === 'arabic') return arabicNodes;
+    if (narratorMode === 'both') {
+      return Array.from(document.querySelectorAll('.story-box p, .lesson-item p, .verse-arabic'))
+        .filter((node) => {
+          const text = safeText(node);
+          if (node.classList.contains('verse-arabic')) return /[\u0600-\u06FF]/.test(text) && text.length > 8;
+          return !/[\u0600-\u06FF]/.test(text) && text.length > 18;
+        });
+    }
+    return englishNodes;
   }
 
   function splitIntoChunks(text) {
@@ -80,41 +95,64 @@
     }
   }
 
-  function scoreVoice(voice) {
+  function isArabicText(text) {
+    return /[\u0600-\u06FF]/.test(text);
+  }
+
+  function targetLang() {
+    return narratorMode === 'arabic' ? 'ar' : 'en';
+  }
+
+  function scoreVoice(voice, lang = targetLang()) {
     let score = 0;
     const name = `${voice.name} ${voice.lang}`.toLowerCase();
-    if (!/^en[-_]/i.test(voice.lang)) score -= 100;
-    if (/natural|neural|enhanced|premium|siri|google|daniel|arthur|oliver|thomas/.test(name)) score += 80;
-    if (/en-gb/.test(name)) score += 20;
-    if (/male|daniel|arthur|oliver|thomas|google uk english male/.test(name)) score += 12;
-    if (/female|zira|aria|samantha|victoria|karen|susan|fiona|serena|moira|tessa|veena/.test(name)) score -= 5;
+    if (lang === 'ar') {
+      if (!/^ar[-_]/i.test(voice.lang)) score -= 100;
+      if (/arabic|عربي|maged|laila|salma|tarik|zeina|mariam|google.*arabic/.test(name)) score += 80;
+      if (/natural|neural|enhanced|premium|siri|google/.test(name)) score += 24;
+    } else {
+      if (!/^en[-_]/i.test(voice.lang)) score -= 100;
+      if (/natural|neural|enhanced|premium|siri|google|daniel|arthur|oliver|thomas|samantha|serena/.test(name)) score += 80;
+      if (/en-us|en-gb/.test(name)) score += 20;
+      if (/female|samantha|serena|moira|tessa|karen|zira|aria/.test(name)) score += 8;
+      if (/robot|compact/.test(name)) score -= 20;
+    }
     if (voice.default) score += 10;
     return score;
   }
 
-  function getVoices() {
+  function getVoices(lang = targetLang()) {
     if (!synth) return [];
-    return synth.getVoices().filter((voice) => /^en[-_]/i.test(voice.lang));
+    const matcher = lang === 'ar' ? /^ar[-_]/i : /^en[-_]/i;
+    return synth.getVoices().filter((voice) => matcher.test(voice.lang));
   }
 
-  function getSelectedVoice() {
-    const voices = getVoices();
+  function getSelectedVoice(lang = targetLang()) {
+    const voices = getVoices(lang);
     if (!voices.length) return null;
     return (
       voices.find((voice) => voice.voiceURI === chosenVoiceURI) ||
-      voices.slice().sort((a, b) => scoreVoice(b) - scoreVoice(a))[0]
+      voices.slice().sort((a, b) => scoreVoice(b, lang) - scoreVoice(a, lang))[0]
     );
   }
 
   function populateVoiceSelect() {
     const select = document.getElementById('narVoiceSelect');
     if (!select) return;
-    const voices = getVoices();
-    const selected = getSelectedVoice();
+    const lang = targetLang();
+    const voices = getVoices(lang);
+    const selected = getSelectedVoice(lang);
     select.innerHTML = '';
+    if (!voices.length) {
+      const option = document.createElement('option');
+      option.value = '';
+      option.textContent = lang === 'ar' ? 'No Arabic voice installed' : 'No English voice installed';
+      select.appendChild(option);
+      return;
+    }
     voices
       .slice()
-      .sort((a, b) => scoreVoice(b) - scoreVoice(a))
+      .sort((a, b) => scoreVoice(b, lang) - scoreVoice(a, lang))
       .forEach((voice) => {
         const option = document.createElement('option');
         option.value = voice.voiceURI;
@@ -131,11 +169,14 @@
   }
 
   function buildUtterance(text) {
+    const isArabic = isArabicText(text);
+    const lang = isArabic ? 'ar' : 'en';
     const utterance = new SpeechSynthesisUtterance(text);
-    const voice = getSelectedVoice();
+    const voice = getSelectedVoice(lang);
     if (voice) utterance.voice = voice;
-    utterance.rate = narratorRate;
-    utterance.pitch = voice && /daniel|arthur|oliver|thomas|male/i.test(voice.name) ? 0.98 : 1;
+    utterance.lang = isArabic ? 'ar' : 'en-US';
+    utterance.rate = isArabic ? Math.min(narratorRate, 0.9) : narratorRate;
+    utterance.pitch = isArabic ? 0.96 : 1.04;
     utterance.volume = 1;
     return utterance;
   }
@@ -224,6 +265,13 @@
     unlockAudio();
     synth.cancel();
     paragraphs = collectParagraphs();
+    if (!paragraphs.length) {
+      isReading = false;
+      isPaused = false;
+      setNarratorStatus('No matching text for this narrator mode', 'Try Calm English or English + Arabic');
+      updateNarratorUI();
+      return;
+    }
     currentIdx = 0;
     speechQueue = [];
     isReading = true;
@@ -470,6 +518,11 @@
       <div class="nar-right">
         <div class="nar-tools">
           <select class="nar-select" id="narVoiceSelect" aria-label="Choose narrator voice"></select>
+          <select class="nar-select" id="narModeSelect" aria-label="Choose narrator mode">
+            <option value="calm-en">Calm English</option>
+            <option value="arabic">Arabic Verses</option>
+            <option value="both">English + Arabic</option>
+          </select>
           <select class="nar-select" id="narRateSelect" aria-label="Choose narrator speed">
             <option value="0.88">Slow</option>
             <option value="0.94">Natural</option>
@@ -511,6 +564,15 @@
         isReading = true;
         speakCurrentParagraph();
       }
+    });
+    document.getElementById('narModeSelect')?.addEventListener('change', (event) => {
+      narratorMode = event.target.value;
+      localStorage.setItem(MODE_STORAGE_KEY, narratorMode);
+      chosenVoiceURI = '';
+      localStorage.removeItem(VOICE_STORAGE_KEY);
+      populateVoiceSelect();
+      setNarratorStatus('Narrator mode changed', event.target.selectedOptions[0]?.textContent || STORY_CONFIG[STORY_KEY].label);
+      if (isReading) startReading();
     });
     document.getElementById('narRateSelect')?.addEventListener('change', (event) => {
       narratorRate = parseFloat(event.target.value);
@@ -577,6 +639,8 @@
     setupSpeechBubbles();
     bindGlobalUnlocks();
     populateVoiceSelect();
+    const modeSelect = document.getElementById('narModeSelect');
+    if (modeSelect) modeSelect.value = narratorMode;
     const rateSelect = document.getElementById('narRateSelect');
     if (rateSelect) rateSelect.value = String(narratorRate);
     updateNarratorUI();
