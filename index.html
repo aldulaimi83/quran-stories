@@ -3,155 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quran Stories for Kids</title>
+  <title>Quran Stories for Kids | YouOoo</title>
+  <meta
+    name="description"
+    content="Beautiful Quran stories for kids with narration, ambient sounds, lessons, and a playful mobile-friendly reading experience."
+  />
+  <meta name="theme-color" content="#1a3a2a" />
+  <meta property="og:title" content="Quran Stories for Kids" />
+  <meta
+    property="og:description"
+    content="Read and listen to Quran stories for kids on a mobile-friendly YouOoo story site."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stories.youooo.com/" />
+  <link rel="canonical" href="https://stories.youooo.com/" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .stars-decoration {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin: 12px 0;
-    }
-    .stars-decoration span { font-size: 1.2rem; animation: float 3s ease-in-out infinite; }
-    .stars-decoration span:nth-child(2) { animation-delay: 0.3s; }
-    .stars-decoration span:nth-child(3) { animation-delay: 0.6s; }
-    .stars-decoration span:nth-child(4) { animation-delay: 0.9s; }
-    .stars-decoration span:nth-child(5) { animation-delay: 1.2s; }
-  </style>
 </head>
 <body>
+<header class="site-header site-header-home">
+  <div class="top-brand-bar">
+    <a href="https://youooo.com" class="brand-mark" target="_blank" rel="noreferrer">
+      <img src="assets/youooo_logo.png" alt="YouOoo logo" class="brand-logo" />
+      <span>YouOoo</span>
+    </a>
+    <a href="https://youooo.com" class="top-site-link" target="_blank" rel="noreferrer">Visit YouOoo.com</a>
+  </div>
 
-<!-- HEADER -->
-<header class="site-header">
-  <span class="header-moon">🌙</span>
-  <h1>Quran Stories for Kids</h1>
-  <p class="subtitle">Beautiful stories from the Holy Quran — for young hearts and curious minds</p>
-  <div class="arabic-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-  <div class="stars-decoration">
-    <span>⭐</span><span>✨</span><span>🌟</span><span>✨</span><span>⭐</span>
+  <div class="hero-shell">
+    <div class="hero-copy">
+      <span class="hero-kicker">Stories.YouOoo.com</span>
+      <h1>Quran Stories for Kids</h1>
+      <p class="subtitle">
+        Beautiful stories from the Holy Quran for young hearts, curious minds, and family reading time.
+      </p>
+      <div class="arabic-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <div class="stars-decoration" aria-hidden="true">
+        <span>⭐</span><span>✨</span><span>🌟</span><span>✨</span><span>⭐</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#stories" class="hero-btn primary">Start Reading</a>
+        <a href="https://youooo.com" class="hero-btn" target="_blank" rel="noreferrer">More from YouOoo</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-stat-card">
+        <strong>12 Stories</strong>
+        <span>Prophets, miracles, patience, and courage</span>
+      </div>
+      <div class="hero-stat-card">
+        <strong>Read + Listen</strong>
+        <span>Voice narration and ambient story scenes</span>
+      </div>
+      <div class="hero-stat-card">
+        <strong>Mobile Friendly</strong>
+        <span>Designed for phones, tablets, and family screens</span>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- WAVE -->
 <div class="wave">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#fef9f0"/>
   </svg>
 </div>
 
-<!-- MAIN -->
 <main>
-  <!-- INTRO -->
-  <div class="intro-banner">
+  <section class="intro-banner">
     <h2>🕌 Welcome, Little Explorer!</h2>
     <p>
       The Quran is full of amazing stories about brave prophets, kind messengers, and the wonderful miracles Allah gave them.
-      These stories teach us about faith, patience, kindness, and always trusting in Allah. Let's read them together!
+      These stories teach us faith, patience, kindness, courage, and trust in Allah.
     </p>
-  </div>
+  </section>
 
-  <h2 class="section-title">📖 Choose Your Story</h2>
+  <section class="feature-strip" aria-label="Site features">
+    <div class="feature-pill">🎙️ Narrator voice on every story</div>
+    <div class="feature-pill">🎵 Gentle ambient sound scenes</div>
+    <div class="feature-pill">📱 Mobile-friendly reading</div>
+    <div class="feature-pill">🌟 Simple lessons for kids</div>
+  </section>
 
-  <!-- STORY CARDS GRID -->
+  <h2 class="section-title" id="stories">📖 Choose Your Story</h2>
+
   <div class="stories-grid">
-
-    <!-- 1. Adam -->
     <a href="stories/adam.html" class="story-card">
       <div class="card-banner theme-green">🌿</div>
       <div class="card-body">
         <span class="card-number">Story 1</span>
         <h3 class="card-title">Prophet Adam</h3>
-        <p class="card-desc">The very first human being, created by Allah from clay — and given a special gift no angel had!</p>
+        <p class="card-desc">The very first human being, created by Allah from clay and honoured with knowledge.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 2. Nuh -->
     <a href="stories/nuh.html" class="story-card">
       <div class="card-banner theme-blue">🚢</div>
       <div class="card-body">
         <span class="card-number">Story 2</span>
         <h3 class="card-title">Prophet Nuh & The Ark</h3>
-        <p class="card-desc">Allah asked Nuh to build a huge ark and fill it with animals — then came the greatest flood!</p>
+        <p class="card-desc">Allah asked Nuh to build a huge ark, and then came the great flood.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 3. Ibrahim -->
     <a href="stories/ibrahim.html" class="story-card">
       <div class="card-banner theme-orange">🔥</div>
       <div class="card-body">
         <span class="card-number">Story 3</span>
         <h3 class="card-title">Prophet Ibrahim</h3>
-        <p class="card-desc">Ibrahim was so brave he stood up to a whole kingdom of idol-worshippers — and survived a blazing fire!</p>
+        <p class="card-desc">Ibrahim stood bravely for truth and Allah made the blazing fire cool and safe.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 4. Yusuf -->
     <a href="stories/yusuf.html" class="story-card">
       <div class="card-banner theme-purple">⭐</div>
       <div class="card-body">
         <span class="card-number">Story 4</span>
         <h3 class="card-title">Prophet Yusuf</h3>
-        <p class="card-desc">From a dark well to a royal palace — the amazing journey of the prophet who could explain dreams!</p>
+        <p class="card-desc">From a dark well to a royal palace, Yusuf's story is full of patience and forgiveness.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 5. Musa -->
     <a href="stories/musa.html" class="story-card">
       <div class="card-banner theme-teal">🌊</div>
       <div class="card-body">
         <span class="card-number">Story 5</span>
         <h3 class="card-title">Prophet Musa</h3>
-        <p class="card-desc">Musa spoke to Allah on a holy mountain and split the sea with his staff to save his people!</p>
+        <p class="card-desc">Musa spoke to Allah and crossed the sea through a miraculous path.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 6. Sulaiman -->
     <a href="stories/sulaiman.html" class="story-card">
       <div class="card-banner theme-gold">👑</div>
       <div class="card-body">
         <span class="card-number">Story 6</span>
         <h3 class="card-title">Prophet Sulaiman</h3>
-        <p class="card-desc">The wise king who could talk to animals and birds, and commanded the wind to carry him!</p>
+        <p class="card-desc">The wise king who understood animals and ruled with justice and gratitude.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 7. Yunus -->
     <a href="stories/yunus.html" class="story-card">
       <div class="card-banner theme-navy">🐋</div>
       <div class="card-body">
         <span class="card-number">Story 7</span>
         <h3 class="card-title">Prophet Yunus</h3>
-        <p class="card-desc">Yunus was swallowed by a giant whale — but he prayed inside the dark belly and Allah saved him!</p>
+        <p class="card-desc">Yunus prayed from the darkness inside the great whale and Allah saved him.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
-    <!-- 8. Ashab al-Kahf -->
     <a href="stories/kahf.html" class="story-card">
       <div class="card-banner theme-red">🕯️</div>
       <div class="card-body">
         <span class="card-number">Story 8</span>
         <h3 class="card-title">The People of the Cave</h3>
-        <p class="card-desc">A group of brave young men and their loyal dog who slept in a cave for 309 years!</p>
+        <p class="card-desc">Young believers trusted Allah and slept safely in a cave for many years.</p>
         <span class="card-read-btn">Read Story ➜</span>
       </div>
     </a>
 
+    <a href="stories/ismail.html" class="story-card">
+      <div class="card-banner theme-sand">💧</div>
+      <div class="card-body">
+        <span class="card-number">Story 9</span>
+        <h3 class="card-title">Prophet Ismail</h3>
+        <p class="card-desc">A story of trust, Zamzam water, and helping build the Ka'bah with Ibrahim.</p>
+        <span class="card-read-btn">Read Story ➜</span>
+      </div>
+    </a>
+
+    <a href="stories/ayub.html" class="story-card">
+      <div class="card-banner theme-rose">🤲</div>
+      <div class="card-body">
+        <span class="card-number">Story 10</span>
+        <h3 class="card-title">Prophet Ayub</h3>
+        <p class="card-desc">Ayub stayed patient through hardship and never stopped trusting Allah.</p>
+        <span class="card-read-btn">Read Story ➜</span>
+      </div>
+    </a>
+
+    <a href="stories/isa.html" class="story-card">
+      <div class="card-banner theme-sky">🕊️</div>
+      <div class="card-body">
+        <span class="card-number">Story 11</span>
+        <h3 class="card-title">Prophet Isa</h3>
+        <p class="card-desc">Isa spoke with wisdom, healed by Allah's permission, and called people to worship Allah alone.</p>
+        <span class="card-read-btn">Read Story ➜</span>
+      </div>
+    </a>
+
+    <a href="stories/maryam.html" class="story-card">
+      <div class="card-banner theme-lilac">🌸</div>
+      <div class="card-body">
+        <span class="card-number">Story 12</span>
+        <h3 class="card-title">Maryam</h3>
+        <p class="card-desc">A story of worship, purity, and one of the most remarkable miracles in the Quran.</p>
+        <span class="card-read-btn">Read Story ➜</span>
+      </div>
+    </a>
   </div>
+
+  <section class="home-cta">
+    <div>
+      <h2>Explore More From YouOoo</h2>
+      <p>Visit the main YouOoo website for more tools, learning projects, and interactive experiences.</p>
+    </div>
+    <a href="https://youooo.com" class="hero-btn primary" target="_blank" rel="noreferrer">Open YouOoo.com</a>
+  </section>
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <span class="footer-moon">🌙</span>
-  <p><strong>Quran Stories for Kids</strong> — Learning through the light of the Quran</p>
-  <p style="margin-top:8px; opacity:0.7;">May Allah bless you and your family. اللَّهُمَّ آمِين</p>
+<footer class="site-footer site-footer-brand">
+  <div class="footer-brand-row">
+    <img src="assets/youooo_logo.png" alt="YouOoo logo" class="footer-brand-logo" />
+    <div>
+      <p><strong>Quran Stories for Kids</strong> by YouOoo</p>
+      <p class="footer-muted">May Allah bless you and your family. اللَّهُمَّ آمِين</p>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="https://stories.youooo.com" target="_blank" rel="noreferrer">Stories</a>
+    <a href="https://youooo.com" target="_blank" rel="noreferrer">YouOoo</a>
+  </div>
 </footer>
-
 </body>
 </html>

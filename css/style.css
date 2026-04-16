@@ -15,6 +15,9 @@
   --red: #e74c3c;
   --teal: #1abc9c;
   --sky: #87ceeb;
+  --sand: #d9a441;
+  --rose: #d96a8a;
+  --lilac: #b28dff;
   --bg: #fef9f0;
   --card-shadow: 0 8px 32px rgba(0,0,0,0.12);
   --radius: 24px;
@@ -59,6 +62,136 @@ body::before {
   top: 0; left: 0; right: 0; bottom: 0;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20 Z' fill='none' stroke='%23f1c40f' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
   pointer-events: none;
+}
+
+.site-header-home {
+  padding: 22px 20px 72px;
+}
+
+.top-brand-bar {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.12);
+  padding: 5px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.top-site-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: #fff5cc;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.hero-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.8fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.hero-copy {
+  text-align: left;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(241,196,15,0.14);
+  color: #f7dd6d;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.hero-btn.primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #123020;
+}
+
+.hero-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.hero-stat-card {
+  padding: 18px 18px 16px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  backdrop-filter: blur(8px);
+  text-align: left;
+}
+
+.hero-stat-card strong {
+  display: block;
+  color: #fff2b6;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.hero-stat-card span {
+  color: #d7ecd8;
+  line-height: 1.55;
+  font-weight: 600;
 }
 
 .header-moon {
@@ -141,6 +274,27 @@ main {
   line-height: 1.7;
 }
 
+.feature-strip {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -10px 0 40px;
+}
+
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: white;
+  color: #214730;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
 /* ===== SECTION TITLE ===== */
 .section-title {
   font-family: 'Fredoka One', cursive;
@@ -213,6 +367,10 @@ main {
 .theme-red   { background: linear-gradient(135deg, #c0392b, #e74c3c); }
 .theme-gold  { background: linear-gradient(135deg, #d4ac0d, #f1c40f); }
 .theme-navy  { background: linear-gradient(135deg, #1a3a5c, #2980b9); }
+.theme-sand  { background: linear-gradient(135deg, #b88b2d, #e0b75b); }
+.theme-rose  { background: linear-gradient(135deg, #b24468, #e68eaa); }
+.theme-sky   { background: linear-gradient(135deg, #4ca6d8, #91d4f4); }
+.theme-lilac { background: linear-gradient(135deg, #8b6ada, #c3abff); }
 
 .card-body {
   padding: 22px;
@@ -276,6 +434,43 @@ main {
   margin-bottom: 8px;
 }
 
+.site-footer-brand {
+  display: grid;
+  gap: 16px;
+}
+
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.footer-muted {
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #fff2b6;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 /* ===== STORY PAGE ===== */
 .story-page body {
   background: var(--bg);
@@ -316,6 +511,47 @@ main {
   padding: 40px 20px 80px;
   position: relative;
   z-index: 1;
+}
+
+.story-shell {
+  position: relative;
+}
+
+.story-brand-ribbon {
+  max-width: 800px;
+  margin: 24px auto 0;
+  padding: 0 20px;
+}
+
+.story-brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: white;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: #214730;
+}
+
+.story-brand-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+}
+
+.story-brand-card img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.story-brand-card small {
+  color: #55725f;
+  font-weight: 700;
 }
 
 .story-box {
@@ -508,6 +744,7 @@ main {
 .nar-left  { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .nar-center{ flex: 1; min-width: 80px; }
 .nar-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.nar-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
 .nar-avatar {
   font-size: 2rem;
@@ -527,6 +764,12 @@ main {
 .nar-info  { display: flex; flex-direction: column; gap: 2px; }
 .nar-title { font-family: 'Fredoka One', cursive; color: var(--gold); font-size: 0.95rem; }
 .nar-status{ color: #a8d8b9; font-size: 0.8rem; font-weight: 600; }
+
+.nar-substatus {
+  color: #d5f7df;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
 
 .nar-progress {
   height: 8px;
@@ -571,6 +814,21 @@ main {
 .nar-btn.stop         { background: rgba(231,76,60,0.3); border-color: #e74c3c; color: #ff9999; }
 .nar-btn.stop:hover   { background: #e74c3c; color: white; }
 .btn-icon             { font-size: 1.1em; }
+
+.nar-select {
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  border: 2px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.1);
+  color: #f8fff8;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+.nar-select option {
+  color: #123020;
+}
 
 /* Reading highlight */
 .reading-now {
@@ -752,6 +1010,67 @@ main {
 .scene-kahf .s-star2    { font-size:1.2rem; top:26px; left:40%;     animation: twinkle 2.8s ease-in-out infinite 0.6s; }
 .scene-kahf .s-zzz      { font-size:1.5rem; bottom:52px; left:60%;  animation: rise 4s linear infinite; }
 
+/* ── Ismail — Desert & Zamzam ── */
+.scene-ismail { background: linear-gradient(180deg, #88cdf6 0%, #f3d183 58%, #d59d47 100%); }
+.scene-ismail .s-sun     { font-size: 3.7rem; top: 10px; right: 12%; animation: glow 4s ease-in-out infinite; }
+.scene-ismail .s-tent    { font-size: 4.8rem; bottom: 6px; left: 10%; }
+.scene-ismail .s-well    { font-size: 4rem; bottom: 8px; left: 44%; animation: bob 2.5s ease-in-out infinite; }
+.scene-ismail .s-palm1   { font-size: 4.6rem; bottom: 0; right: 6%; animation: sway 4s ease-in-out infinite; }
+.scene-ismail .s-palm2   { font-size: 3.7rem; bottom: 0; right: 25%; animation: sway 5s ease-in-out infinite .6s; }
+.scene-ismail .s-bird    { font-size: 1.8rem; top: 28px; left: 5%; animation: flyAcross 12s linear infinite 2s; }
+
+/* ── Ayub — Patience ── */
+.scene-ayub { background: linear-gradient(180deg, #8cb7da 0%, #dfeaf3 45%, #8ab56d 100%); }
+.scene-ayub .s-cloud1  { font-size: 3rem; top: 12px; left: 8%; animation: float 4s ease-in-out infinite; }
+.scene-ayub .s-cloud2  { font-size: 2.4rem; top: 24px; right: 10%; animation: float 5.5s ease-in-out infinite .8s; }
+.scene-ayub .s-house   { font-size: 4.6rem; bottom: 8px; left: 14%; }
+.scene-ayub .s-tree    { font-size: 4.4rem; bottom: 2px; right: 12%; animation: sway 4s ease-in-out infinite; }
+.scene-ayub .s-heart   { font-size: 2.4rem; top: 22px; left: 45%; animation: pulse 2.5s ease-in-out infinite; }
+.scene-ayub .s-water   { font-size: 2.8rem; bottom: 12px; left: 46%; animation: bob 2s ease-in-out infinite; }
+
+/* ── Isa — Light & Mercy ── */
+.scene-isa { background: linear-gradient(180deg, #97d9f6 0%, #d9f1ff 52%, #a9d58a 100%); }
+.scene-isa .s-sun      { font-size: 3.6rem; top: 10px; left: 10%; animation: glow 3.5s ease-in-out infinite; }
+.scene-isa .s-dove1    { font-size: 2.5rem; top: 36px; left: 5%; animation: flyAcross 10s linear infinite; }
+.scene-isa .s-dove2    { font-size: 2rem; top: 18px; left: 5%; animation: flyAcross 13s linear infinite 3s; }
+.scene-isa .s-palm     { font-size: 4.6rem; bottom: 0; left: 14%; animation: sway 4.5s ease-in-out infinite; }
+.scene-isa .s-lamp     { font-size: 3.6rem; bottom: 18px; left: 47%; animation: pulse 2.2s ease-in-out infinite; }
+.scene-isa .s-flower   { font-size: 2.2rem; bottom: 10px; right: 14%; animation: bob 3s ease-in-out infinite; }
+
+/* ── Maryam — Worship & Miracle ── */
+.scene-maryam { background: linear-gradient(180deg, #7a7ad7 0%, #c8bcff 48%, #f8e7c4 100%); }
+.scene-maryam .s-star1  { font-size: 1.5rem; top: 16px; left: 18%; animation: twinkle 2s ease-in-out infinite; }
+.scene-maryam .s-star2  { font-size: 1.2rem; top: 12px; right: 20%; animation: twinkle 2.8s ease-in-out infinite .5s; }
+.scene-maryam .s-arch   { font-size: 4.6rem; bottom: 0; left: 16%; }
+.scene-maryam .s-date   { font-size: 4.4rem; bottom: 0; right: 12%; animation: sway 4.2s ease-in-out infinite; }
+.scene-maryam .s-flower { font-size: 2.4rem; bottom: 16px; left: 46%; animation: pulse 2.4s ease-in-out infinite; }
+.scene-maryam .s-bird   { font-size: 1.7rem; top: 30px; left: 5%; animation: flyAcross 11s linear infinite 1s; }
+
+.home-cta {
+  margin-top: 54px;
+  padding: 26px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #183824, #295b3f);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.home-cta h2 {
+  font-family: 'Fredoka One', cursive;
+  color: #fff2b6;
+  margin-bottom: 8px;
+}
+
+.home-cta p {
+  color: #d6efde;
+  line-height: 1.7;
+}
+
 /* ============================================================
    RESPONSIVE tweaks for scenes
    ============================================================ */
@@ -763,4 +1082,32 @@ main {
   .narrator-bar { padding: 10px 12px; }
   .nar-btn { padding: 7px 12px; font-size: 0.82rem; }
   .nar-avatar { width: 40px; height: 40px; font-size: 1.6rem; }
+  .top-brand-bar,
+  .hero-shell,
+  .home-cta,
+  .story-brand-card {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-copy,
+  .hero-panel {
+    text-align: center;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .story-brand-card small {
+    display: block;
+    margin-top: 4px;
+  }
+  .nar-right,
+  .nar-tools {
+    width: 100%;
+  }
+  .nar-btn,
+  .nar-select {
+    width: 100%;
+    justify-content: center;
+  }
 }
