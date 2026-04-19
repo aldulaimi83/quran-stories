@@ -17,11 +17,219 @@
     ayub: { sound: 'spring', label: 'Patience and Mercy' },
     isa: { sound: 'light', label: 'Message of Mercy' },
     maryam: { sound: 'serene', label: 'A Blessed Sanctuary' },
+    dawud: { sound: 'birds', label: 'A Voice of Praise' },
+    salih: { sound: 'desert', label: 'The She-Camel Sign' },
+    hud: { sound: 'wind', label: 'The Strong Wind' },
+    shuayb: { sound: 'spring', label: 'Honest Trade' },
+    luqman: { sound: 'serene', label: 'Wise Advice' },
+    dhulqarnayn: { sound: 'cave', label: 'A Just Journey' },
+  };
+
+  const BILINGUAL_STORIES = {
+    adam: {
+      titleEn: 'Prophet Adam',
+      titleAr: 'قصة النبي آدم',
+      summaryEn: 'Allah created Adam, taught him knowledge, forgave him when he repented, and made him the first prophet on Earth.',
+      storyAr: [
+        'خلق الله آدم عليه السلام من طين، وكرمه بالعلم، فعلمه أسماء الأشياء كلها.',
+        'أمر الله الملائكة أن يسجدوا لآدم تكريما له، فسجدوا إلا إبليس، لأنه تكبر وعصى أمر الله.',
+        'علّمنا قصة آدم أن العلم نعمة، وأن من أخطأ ثم تاب بصدق فإن الله غفور رحيم.'
+      ],
+      lessonAr: 'نتعلم أن نطلب العلم، وأن نبتعد عن الكبر، وأن نرجع إلى الله عندما نخطئ.'
+    },
+    nuh: {
+      titleEn: 'Prophet Nuh and the Ark',
+      titleAr: 'قصة النبي نوح والسفينة',
+      summaryEn: 'Nuh called his people for many years, built the ark by Allah’s command, and Allah saved the believers.',
+      storyAr: [
+        'دعا نوح عليه السلام قومه إلى عبادة الله وحده سنوات طويلة، لكنه صبر ولم ييأس.',
+        'أمره الله أن يبني سفينة كبيرة، فآمن معه من آمن، ثم جاء الطوفان العظيم.',
+        'نجّى الله نوحا ومن معه، وكانت السفينة علامة على رحمة الله بالمؤمنين.'
+      ],
+      lessonAr: 'نتعلم الصبر في الدعوة إلى الخير، والثقة بوعد الله.'
+    },
+    ibrahim: {
+      titleEn: 'Prophet Ibrahim',
+      titleAr: 'قصة النبي إبراهيم',
+      summaryEn: 'Ibrahim stood for truth, trusted Allah, and Allah made the fire cool and safe for him.',
+      storyAr: [
+        'كان إبراهيم عليه السلام يبحث عن الحق، فعرف أن الله وحده هو الخالق المستحق للعبادة.',
+        'حطم الأصنام ليعلم قومه أنها لا تنفع ولا تضر، فغضبوا وألقوه في النار.',
+        'قال الله للنار: كوني بردا وسلاما على إبراهيم، فنجاه الله بقدرته.'
+      ],
+      lessonAr: 'نتعلم الشجاعة في قول الحق، وأن الله يحفظ عباده الصالحين.'
+    },
+    yusuf: {
+      titleEn: 'Prophet Yusuf',
+      titleAr: 'قصة النبي يوسف',
+      summaryEn: 'Yusuf faced jealousy, the well, slavery, and prison, then Allah raised him with patience and forgiveness.',
+      storyAr: [
+        'رأى يوسف عليه السلام رؤيا عظيمة، لكن إخوته حسدوه وألقوه في البئر.',
+        'انتقل يوسف إلى مصر، ودخل السجن ظلما، لكنه بقي صابرا محسنا واثقا بالله.',
+        'رفع الله مقامه، وجمعه بأهله، فسامح إخوته وقال: لا تثريب عليكم اليوم.'
+      ],
+      lessonAr: 'نتعلم أن الصبر والصدق والعفو من أعظم الأخلاق.'
+    },
+    musa: {
+      titleEn: 'Prophet Musa',
+      titleAr: 'قصة النبي موسى',
+      summaryEn: 'Musa faced Pharaoh with courage, and Allah saved the believers by parting the sea.',
+      storyAr: [
+        'أرسل الله موسى عليه السلام إلى فرعون ليدعوه إلى عبادة الله وحده.',
+        'خاف موسى في بعض المواقف، لكن الله ثبته وأيده بالآيات والمعجزات.',
+        'عندما وصل المؤمنون إلى البحر، شقه الله لهم طريقا، ونجا موسى ومن معه.'
+      ],
+      lessonAr: 'نتعلم أن الشجاعة تأتي من الثقة بالله.'
+    },
+    sulaiman: {
+      titleEn: 'Prophet Sulaiman',
+      titleAr: 'قصة النبي سليمان',
+      summaryEn: 'Sulaiman was a wise king who understood animals and thanked Allah for every blessing.',
+      storyAr: [
+        'أعطى الله سليمان عليه السلام ملكا عظيما وحكمة، وعلمه فهم كلام بعض المخلوقات.',
+        'سمع سليمان كلام النملة، فتبسم وشكر الله على هذه النعمة.',
+        'كان ملكا عادلا لا يتكبر، بل يعرف أن كل ما عنده من فضل الله.'
+      ],
+      lessonAr: 'نتعلم شكر النعم والعدل والرحمة بالمخلوقات.'
+    },
+    yunus: {
+      titleEn: 'Prophet Yunus',
+      titleAr: 'قصة النبي يونس',
+      summaryEn: 'Yunus called out to Allah from darkness, and Allah answered his sincere prayer.',
+      storyAr: [
+        'خرج يونس عليه السلام من قومه قبل أن يأذن الله له، فركب السفينة وابتلعه الحوت.',
+        'في الظلمات دعا ربه: لا إله إلا أنت سبحانك إني كنت من الظالمين.',
+        'استجاب الله له، فأنجاه ورده إلى قومه، فآمنوا بالله.'
+      ],
+      lessonAr: 'نتعلم أن الدعاء والتوبة يفتحان أبواب الرحمة.'
+    },
+    kahf: {
+      titleEn: 'The People of the Cave',
+      titleAr: 'قصة أصحاب الكهف',
+      summaryEn: 'Young believers protected their faith, so Allah protected them in the cave.',
+      storyAr: [
+        'كان أصحاب الكهف فتية آمنوا بالله في زمن صعب، وخافوا على دينهم.',
+        'لجؤوا إلى الكهف، فأنامهم الله سنوات طويلة وحفظهم برحمته.',
+        'أظهر الله قصتهم للناس لتكون آية على قدرته وحفظه للمؤمنين.'
+      ],
+      lessonAr: 'نتعلم الثبات على الإيمان واختيار الصحبة الصالحة.'
+    },
+    ismail: {
+      titleEn: 'Prophet Ismail',
+      titleAr: 'قصة النبي إسماعيل',
+      summaryEn: 'Ismail and his mother trusted Allah in the desert, and Allah blessed them with Zamzam.',
+      storyAr: [
+        'ترك إبراهيم عليه السلام هاجر وابنها إسماعيل في واد لا زرع فيه بأمر الله.',
+        'سعت هاجر بين الصفا والمروة تبحث عن الماء، ففجر الله زمزم رحمة لهم.',
+        'كبر إسماعيل مطيعا، وساعد أباه إبراهيم في بناء الكعبة.'
+      ],
+      lessonAr: 'نتعلم التوكل على الله وطاعة الوالدين.'
+    },
+    ayub: {
+      titleEn: 'Prophet Ayub',
+      titleAr: 'قصة النبي أيوب',
+      summaryEn: 'Ayub stayed patient during hardship, and Allah restored his health and blessings.',
+      storyAr: [
+        'ابتلى الله أيوب عليه السلام في صحته وماله، فصبر ولم يتذمر.',
+        'كان يدعو الله بأدب وثقة، ويعلم أن الرحمة كلها بيد الله.',
+        'كشف الله عنه البلاء، ورد عليه العافية والرزق.'
+      ],
+      lessonAr: 'نتعلم الصبر الجميل وحسن الظن بالله.'
+    },
+    isa: {
+      titleEn: 'Prophet Isa',
+      titleAr: 'قصة النبي عيسى',
+      summaryEn: 'Isa was given miracles by Allah and called people to worship Allah alone.',
+      storyAr: [
+        'ولد عيسى عليه السلام بمعجزة من الله، وكانت أمه مريم طاهرة عابدة.',
+        'تكلم عيسى في المهد بإذن الله، ودعا الناس إلى عبادة الله وحده.',
+        'أيده الله بمعجزات كثيرة، وكان رحيما ومعلما للخير.'
+      ],
+      lessonAr: 'نتعلم أن المعجزات من الله، وأن الرسالة هي التوحيد.'
+    },
+    maryam: {
+      titleEn: 'Maryam',
+      titleAr: 'قصة مريم عليها السلام',
+      summaryEn: 'Maryam worshiped Allah with purity and patience, and Allah honored her with a great miracle.',
+      storyAr: [
+        'كانت مريم عليها السلام عابدة طاهرة، اختارها الله وكرمها بين نساء العالمين.',
+        'رزقها الله بعيسى عليه السلام بمعجزة، فصبرت وثبتت على أمر الله.',
+        'دافَع الله عنها وأظهر براءتها، وجعل قصتها نورا للمؤمنين.'
+      ],
+      lessonAr: 'نتعلم الحياء والطهارة والثقة بالله عند الشدة.'
+    },
+    dawud: {
+      titleEn: 'Prophet Dawud',
+      titleAr: 'قصة النبي داود',
+      summaryEn: 'Dawud was brave, wise, and loved praising Allah with a beautiful voice.',
+      storyAr: [
+        'أعطى الله داود عليه السلام شجاعة وحكمة، وجعله نبيا وملكا عادلا.',
+        'كان يسبح الله بصوت جميل، حتى تسبح الجبال والطير معه بأمر الله.',
+        'كان يحكم بين الناس بالعدل، ويشكر الله على نعمه.'
+      ],
+      lessonAr: 'نتعلم الشجاعة والعدل وكثرة ذكر الله.'
+    },
+    salih: {
+      titleEn: 'Prophet Salih',
+      titleAr: 'قصة النبي صالح',
+      summaryEn: 'Salih warned his people and Allah sent the she-camel as a clear sign.',
+      storyAr: [
+        'دعا صالح عليه السلام قوم ثمود إلى عبادة الله وحده وترك الظلم.',
+        'طلبوا آية، فأخرج الله لهم ناقة عظيمة لتكون علامة واضحة.',
+        'لكن الظالمين آذوا الناقة، فكانت العاقبة شديدة لمن كذبوا.'
+      ],
+      lessonAr: 'نتعلم احترام آيات الله وعدم ظلم المخلوقات.'
+    },
+    hud: {
+      titleEn: 'Prophet Hud',
+      titleAr: 'قصة النبي هود',
+      summaryEn: 'Hud reminded the strong people of Aad that real power belongs to Allah.',
+      storyAr: [
+        'كان قوم عاد أقوياء ويبنون في الأرض، لكنهم تكبروا ونسوا نعمة الله.',
+        'دعاهم هود عليه السلام إلى التوحيد والتوبة، فلم يستجيبوا إلا قليل منهم.',
+        'أرسل الله عليهم ريحا شديدة، ونجّى هودا والمؤمنين.'
+      ],
+      lessonAr: 'نتعلم أن القوة الحقيقية مع الإيمان والتواضع.'
+    },
+    shuayb: {
+      titleEn: 'Prophet Shuayb',
+      titleAr: 'قصة النبي شعيب',
+      summaryEn: 'Shuayb taught his people honesty in business and fairness with others.',
+      storyAr: [
+        'كان قوم شعيب يغشون في الميزان وينقصون الناس حقوقهم.',
+        'دعاهم شعيب عليه السلام إلى عبادة الله والعدل في البيع والشراء.',
+        'من أطاع الله نجا، ومن أصر على الظلم خسر في الدنيا والآخرة.'
+      ],
+      lessonAr: 'نتعلم الأمانة والعدل وعدم الغش.'
+    },
+    luqman: {
+      titleEn: 'Luqman the Wise',
+      titleAr: 'قصة لقمان الحكيم',
+      summaryEn: 'Luqman gave his son gentle advice about worship, manners, and humility.',
+      storyAr: [
+        'كان لقمان رجلا حكيما آتاه الله فهما ونورا في الكلام.',
+        'نصح ابنه أن يعبد الله وحده، وأن يحسن إلى والديه، وأن يقيم الصلاة.',
+        'علمه ألا يتكبر على الناس، وأن يكون صوته هادئا وكلامه طيبا.'
+      ],
+      lessonAr: 'نتعلم الحكمة وبر الوالدين والتواضع.'
+    },
+    dhulqarnayn: {
+      titleEn: 'Dhul-Qarnayn',
+      titleAr: 'قصة ذي القرنين',
+      summaryEn: 'Dhul-Qarnayn traveled with justice and helped people by building a strong barrier.',
+      storyAr: [
+        'مكّن الله ذا القرنين في الأرض، فكان يسافر وينشر العدل بين الناس.',
+        'طلب منه قوم ضعفاء أن يساعدهم من يأجوج ومأجوج، فعمل معهم وبنى سدا قويا.',
+        'قال إن هذا من رحمة ربي، فنسب الفضل إلى الله ولم يتكبر.'
+      ],
+      lessonAr: 'نتعلم مساعدة الناس ونسبة الفضل إلى الله.'
+    },
   };
 
   const VOICE_STORAGE_KEY = 'quran_stories_voice';
   const MODE_STORAGE_KEY = 'quran_stories_mode';
   const RATE_STORAGE_KEY = 'quran_stories_rate';
+  const LANGUAGE_STORAGE_KEY = 'quran_stories_language';
   const STORY_KEY = (window.location.pathname.split('/').pop() || '').replace('.html', '');
   if (!Object.prototype.hasOwnProperty.call(STORY_CONFIG, STORY_KEY)) return;
 
@@ -35,6 +243,7 @@
   let isPaused = false;
   let narratorRate = parseFloat(localStorage.getItem(RATE_STORAGE_KEY) || '0.88');
   let narratorMode = localStorage.getItem(MODE_STORAGE_KEY) || 'calm-en';
+  let storyLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'english';
   let chosenVoiceURI = localStorage.getItem(VOICE_STORAGE_KEY) || '';
 
   let audioCtx = null;
@@ -48,6 +257,15 @@
   }
 
   function collectParagraphs() {
+    const bilingualNodes = Array.from(document.querySelectorAll('.bilingual-story-card [data-narrate="true"]'))
+      .filter((node) => safeText(node).length > 18);
+    if (storyLanguage === 'arabic') {
+      return bilingualNodes.filter((node) => /[\u0600-\u06FF]/.test(safeText(node)));
+    }
+    if (storyLanguage === 'both' && bilingualNodes.length) {
+      return bilingualNodes;
+    }
+
     const englishNodes = Array.from(document.querySelectorAll('.story-box p, .lesson-item p'))
       .filter((node) => !/[\u0600-\u06FF]/.test(safeText(node)) && safeText(node).length > 18);
     const arabicNodes = Array.from(document.querySelectorAll('.verse-arabic'))
@@ -100,22 +318,22 @@
   }
 
   function targetLang() {
-    return narratorMode === 'arabic' ? 'ar' : 'en';
+    return narratorMode === 'arabic' || storyLanguage === 'arabic' ? 'ar' : 'en';
   }
 
   function scoreVoice(voice, lang = targetLang()) {
     let score = 0;
     const name = `${voice.name} ${voice.lang}`.toLowerCase();
+    if (/compact|eloquence|novelty|robot|whisper|zarvox|trinoids|boing|bubbles/.test(name)) score -= 120;
     if (lang === 'ar') {
       if (!/^ar[-_]/i.test(voice.lang)) score -= 100;
-      if (/arabic|عربي|maged|laila|salma|tarik|zeina|mariam|google.*arabic/.test(name)) score += 80;
-      if (/natural|neural|enhanced|premium|siri|google/.test(name)) score += 24;
+      if (/arabic|عربي|maged|laila|salma|tarik|zeina|mariam|google.*arabic|majid|hoda|naayf/.test(name)) score += 90;
+      if (/natural|neural|enhanced|premium|siri|google|microsoft/.test(name)) score += 35;
     } else {
       if (!/^en[-_]/i.test(voice.lang)) score -= 100;
-      if (/natural|neural|enhanced|premium|siri|google|daniel|arthur|oliver|thomas|samantha|serena/.test(name)) score += 80;
+      if (/natural|neural|enhanced|premium|siri|google|microsoft|daniel|arthur|oliver|thomas|samantha|serena|ava|aria|jenny|guy/.test(name)) score += 90;
       if (/en-us|en-gb/.test(name)) score += 20;
       if (/female|samantha|serena|moira|tessa|karen|zira|aria/.test(name)) score += 8;
-      if (/robot|compact/.test(name)) score -= 20;
     }
     if (voice.default) score += 10;
     return score;
@@ -255,6 +473,107 @@
         : '<span class="btn-icon">🎵</span> Ambient Sound';
       soundBtn.classList.toggle('nar-active', soundOn);
     }
+  }
+
+  function applyStoryLanguage() {
+    const data = BILINGUAL_STORIES[STORY_KEY];
+    const card = document.getElementById('bilingualStoryCard');
+    if (!data || !card) return;
+
+    const originalNodes = document.querySelectorAll('.story-box, .lesson-box');
+    const showOriginal = storyLanguage !== 'arabic';
+    originalNodes.forEach((node) => {
+      node.hidden = !showOriginal;
+    });
+
+    card.hidden = storyLanguage === 'english';
+    card.dir = storyLanguage === 'arabic' ? 'rtl' : 'auto';
+    document.documentElement.lang = storyLanguage === 'arabic' ? 'ar' : 'en';
+    document.body.classList.toggle('arabic-mode', storyLanguage === 'arabic');
+    document.body.classList.toggle('bilingual-mode', storyLanguage === 'both');
+
+    document.querySelectorAll('[data-story-language]').forEach((button) => {
+      const active = button.dataset.storyLanguage === storyLanguage;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    const status = storyLanguage === 'arabic'
+      ? 'Arabic story mode'
+      : storyLanguage === 'both'
+        ? 'English and Arabic story mode'
+        : 'English story mode';
+    setNarratorStatus(status, STORY_CONFIG[STORY_KEY].label);
+  }
+
+  function buildLanguageSwitcher() {
+    const data = BILINGUAL_STORIES[STORY_KEY];
+    if (!data) return;
+
+    const switcher = document.createElement('section');
+    switcher.className = 'language-switcher-card';
+    switcher.innerHTML = `
+      <div>
+        <span class="language-eyebrow">Choose story language</span>
+        <h2>${data.titleEn} <span>${data.titleAr}</span></h2>
+        <p>Read in English, Arabic, or both together. The narrator follows the selected language when possible.</p>
+      </div>
+      <div class="language-actions" role="group" aria-label="Story language">
+        <button type="button" data-story-language="english">English</button>
+        <button type="button" data-story-language="arabic">العربية</button>
+        <button type="button" data-story-language="both">Both</button>
+      </div>
+    `;
+
+    const content = document.querySelector('.story-content');
+    if (content?.parentNode) content.parentNode.insertBefore(switcher, content);
+
+    switcher.querySelectorAll('[data-story-language]').forEach((button) => {
+      button.addEventListener('click', () => {
+        storyLanguage = button.dataset.storyLanguage;
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, storyLanguage);
+        if (storyLanguage === 'arabic') {
+          narratorMode = 'arabic';
+        } else if (storyLanguage === 'both') {
+          narratorMode = 'both';
+        } else if (narratorMode === 'arabic') {
+          narratorMode = 'calm-en';
+        }
+        localStorage.setItem(MODE_STORAGE_KEY, narratorMode);
+        chosenVoiceURI = '';
+        localStorage.removeItem(VOICE_STORAGE_KEY);
+        populateVoiceSelect();
+        const modeSelect = document.getElementById('narModeSelect');
+        if (modeSelect) modeSelect.value = narratorMode;
+        if (isReading) stopReading();
+        applyStoryLanguage();
+      });
+    });
+  }
+
+  function buildBilingualStoryCard() {
+    const data = BILINGUAL_STORIES[STORY_KEY];
+    const content = document.querySelector('.story-content');
+    if (!data || !content) return;
+
+    const card = document.createElement('section');
+    card.className = 'bilingual-story-card';
+    card.id = 'bilingualStoryCard';
+    card.hidden = true;
+    card.innerHTML = `
+      <div class="bilingual-copy english-copy" dir="ltr">
+        <span class="story-chip">English summary</span>
+        <h2>${data.titleEn}</h2>
+        <p data-narrate="true">${data.summaryEn}</p>
+      </div>
+      <div class="bilingual-copy arabic-copy" dir="rtl" lang="ar">
+        <span class="story-chip">القصة بالعربية</span>
+        <h2>${data.titleAr}</h2>
+        ${data.storyAr.map((paragraph) => `<p data-narrate="true">${paragraph}</p>`).join('')}
+        <div class="arabic-lesson" data-narrate="true">${data.lessonAr}</div>
+      </div>
+    `;
+    content.insertBefore(card, content.firstElementChild);
   }
 
   function startReading() {
@@ -635,6 +954,8 @@
     enhanceStoryPage();
     buildNarratorBar();
     buildStoryBrandCard();
+    buildLanguageSwitcher();
+    buildBilingualStoryCard();
     setupReveal();
     setupSpeechBubbles();
     bindGlobalUnlocks();
@@ -643,6 +964,7 @@
     if (modeSelect) modeSelect.value = narratorMode;
     const rateSelect = document.getElementById('narRateSelect');
     if (rateSelect) rateSelect.value = String(narratorRate);
+    applyStoryLanguage();
     updateNarratorUI();
     window.setInterval(() => {
       const avatar = document.getElementById('narAvatar');
